@@ -13,8 +13,16 @@ public class MatrixMultiplication {
         String file1 = args[0];
         String file2 = args[1];
 
-        double[][] matrix1 = readMatrixFromFile(file1);
-        double[][] matrix2 = readMatrixFromFile(file2);
+        double [][] matrix1, matrix2;
+        try {
+            matrix1 = readMatrixFromFile(file1);
+            matrix2 = readMatrixFromFile(file2);
+        }
+        catch(Exception exp)
+        {
+            System.out.println(exp.getMessage());
+            return;
+        }
 
         int rows1 = matrix1.length;
         int cols1 = matrix1[0].length;
@@ -33,7 +41,7 @@ public class MatrixMultiplication {
         printNumpyMatrix(result);
     }
 
-    private static double[][] readMatrixFromFile(String filename) throws IOException {
+    private static double[][] readMatrixFromFile(String filename) throws IOException, Exception {
         BufferedReader reader = new BufferedReader(new FileReader(filename));
 
         String line = reader.readLine();
@@ -57,6 +65,13 @@ public class MatrixMultiplication {
             line = reader.readLine();
             if (line != null) {
                 parts = line.split(",");
+				
+				// TODO: Check column size consistency
+				/*
+                if () {
+                    String message = "Error! Column size is not the same in " + filename + " at line " + (rows+1);
+                    throw new Exception(message);
+                }*/
             }
         } while (line != null);
 
