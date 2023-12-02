@@ -1,6 +1,6 @@
 # Matrix Multiplication in Java
 
-In this assignment, we will implement a Java program that can do matrix multiplicaiton. The program accepts two CSV filenames as input arguments and print the product in Numpy format. The command of program is
+In this assignment, we will implement a Java program that can do matrix multiplicaiton. The program accepts two CSV filenames as input arguments and prints the product in Numpy format. The command of program is
 ```bash
 java MatrixMultiplication file1.csv file2.csv
 ```
