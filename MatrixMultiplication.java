@@ -36,7 +36,13 @@ public class MatrixMultiplication {
 
         double[][] result = new double[rows1][cols2];
 
-        // TODO: Write your matrix multiplication code here 
+        for (int i = 0; i < rows1; i++) {
+    for (int j = 0; j < cols2; j++) {
+        for (int k = 0; k < cols1; k++) {
+            result[i][j] += matrix1[i][k] * matrix2[k][j];
+        }
+    }
+}
         
         printNumpyMatrix(result);
     }
