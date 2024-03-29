@@ -36,7 +36,13 @@ public class MatrixMultiplication {
 
         double[][] result = new double[rows1][cols2];
 
-        // TODO: Write your matrix multiplication code here 
+        for (int i = 0; i < rows1; i++) {
+    for (int j = 0; j < cols2; j++) {
+        for (int k = 0; k < cols1; k++) {
+            result[i][j] += matrix1[i][k] * matrix2[k][j];
+        }
+    }
+}
         
         printNumpyMatrix(result);
     }
@@ -65,13 +71,10 @@ public class MatrixMultiplication {
             line = reader.readLine();
             if (line != null) {
                 parts = line.split(",");
-				
-				// TODO: Check column size consistency
-				/*
-                if () {
-                    String message = "Error! Column size is not the same in " + filename + " at line " + (rows+1);
-                    throw new Exception(message);
-                }*/
+			if (parts.length != cols) {
+                String errorMessage = "Error! Inconsistent column size in " + filename + " at line " + (rows + 1);
+                throw new Exception(errorMessage);
+            }
             }
         } while (line != null);
 
